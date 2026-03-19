@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokimura | A Sanctuary in Mikuni, Fukui</title>
+    <meta name="description" content="Not Kyoto, But Mikuni. A 1928 traditional Japanese house offering a sanctuary for your breath. Experience the unhurried flow of time on the hidden coast of the sea opposite the Pacific Ocean.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0c0b;
+            --text-main: #e8dfd5;
+            --text-accent: #c2a373;
+            --text-muted: #8c857d;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(13,12,11,0.3) 0%, rgba(13,12,11,1) 100%);
+        }
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
+            opacity: 0.3;
+        }
+        .btn-gold {
+            border: 1px solid var(--text-accent);
+            color: var(--text-accent);
+            transition: all 0.4s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+        }
+        .btn-gold:hover {
+            background-color: var(--text-accent);
+            color: var(--bg-color);
+        }
+        .img-zoom {
+            overflow: hidden;
+        }
+        .img-zoom img {
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .img-zoom:hover img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#c2a373] selection:text-[#0d0c0b]">
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen min-h-[600px] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-[#151311] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1578305698944-9844f128fc8c?q=80&w=2000&auto=format&fit=crop'); opacity: 0.4;"></div>
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto reveal">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide text-[#c2a373]">
+                Not Kyoto,<br>But Mikuni.
+            </h1>
+            <p class="text-xl md:text-3xl serif italic mb-8">The Japan You Wished Existed.</p>
+            <div class="w-16 h-px bg-[#c2a373] mx-auto mb-8 opacity-50"></div>
+            <p class="text-sm md:text-base max-w-2xl mx-auto tracking-wide leading-relaxed text-gray-300">
+                Far from the lost tranquility of crowded tourist routes, <br class="hidden md:block">
+                a proud and authentic everyday life still breathes on the hidden coast of the sea opposite the Pacific Ocean.
+            </p>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-pulse opacity-50">
+            <p class="text-xs uppercase tracking-[0.2em] mb-2">Scroll</p>
+            <div class="w-px h-12 bg-[#c2a373] mx-auto"></div>
+        </div>
+    </header>
+
+    <!-- Section 1: 1928 Sanctuary (Image Left, Text Right) -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="reveal">
+                <div class="aspect-[4/3] w-full img-zoom bg-[#1a1816]">
+                    <img src="https://images.unsplash.com/photo-1613550889201-1b942dc3890d?q=80&w=1200&auto=format&fit=crop" alt="Traditional Japanese Interior" class="w-full h-full object-cover saturate-50 brightness-75">
+                </div>
+            </div>
+            <div class="reveal delay-200">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">About Tokimura</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight">1928: A Sanctuary <br>for Your Breath.</h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>
+                        Built in 1928, this house preserves the traditional Japanese way of life, its spaces gently divided only by <em>fusuma</em> doors and <em>shoji</em> screens. This is not a place for socializing, but a sanctuary to indulge in the luxury of solitude.
+                    </p>
+                    <p>
+                        The soft light filtering through the shoji, the subtle scent of tatami mats, and the overwhelming silence of the night. Here, taking off your watch and simply listening to the sound of your own breath will become the most precious experience of your modern journey.
+                    </p>
+                    <p>
+                        We named this inn <strong>"Tokimura"</strong>—literally translating to "Village of Time." First, to be your basecamp for traveling through the immense layers of time accumulated in the town of Mikuni. Second, to provide a space where you can focus solely on the shifting signs of the day and seasons, returning to your own inner stillness.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Five Rooms Header (Target for scroll up) -->
+        <div id="rooms-section" class="mt-32 text-center reveal scroll-mt-24">
+            <h3 class="text-2xl md:text-4xl mb-8 serif text-[#e8dfd5]">Five Rooms, Five Fragments of Time</h3>
+            <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                <p>
+                    Built in 1928, this house holds five rooms, each harboring a distinct narrative. Designed in the traditional style, with spaces gently divided only by <em>fusuma</em> doors and <em>shoji</em> screens, guests share the spacious kitchen and bathroom, creating a single, peaceful dwelling together.
+                </p>
+                <p>
+                    We also offer complimentary rental bicycles to support your exploration. Ride towards the sacred, uninhabited Oshima Island while feeling the sea breeze, or take your bicycle on the local train to venture into the sanctuaries of Zen and the villages of master craftsmen. It is a modest gift to help you navigate the flow of time running through the deep layers of Mikuni and Fukui, more profoundly and freely.
+                </p>
+            </div>
+        </div>
+
+        <!-- 6 Grid Rooms -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-16 mt-16 md:mt-24 reveal delay-400">
+            <!-- Room A -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">Traces of Life and the Festival’s Echo</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Traces+of+Life" alt="Traces of Life" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">The most spacious room in the house, draped in afternoon light and the faint echoes of the festival.</p>
+            </a>
+            <!-- Room B -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Artisan’s Frame</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Artisan+Frame" alt="The Artisan’s Frame" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">An attic retreat where you can gaze up at the beautiful roof framing, a testament to 1928 craftsmanship.</p>
+            </a>
+            <!-- Room C -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Morning Reflection</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Morning+Reflect" alt="Morning Reflection" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">A tea-room-like serenity and morning light, waiting at the end of the corridor overlooking the courtyard garden.</p>
+            </a>
+            <!-- Room D -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Crimson Shadow</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Crimson+Shadow" alt="Crimson Shadow" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">A small, introspective room where soft light dances on traditional crimson walls.</p>
+            </a>
+            <!-- Room E -->
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Sanctum of Shakudani Stone</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Shakudani+Stone" alt="Shakudani Stone" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">A dignified time of stillness on the ground floor, facing the Shakudani stone and eternal moss garden.</p>
+            </a>
+            <!-- Bicycle -->
+            <div class="block group">
+                <h3 class="text-transparent select-none serif text-base md:text-xl mb-3" aria-hidden="true">Rental Bicycle</h3>
+                <div class="aspect-[4/3] w-full overflow-hidden bg-[#1a1816]">
+                    <img src="https://placehold.co/800x600/1a1816/c2a373?text=Bicycle" alt="Complimentary Rental Bicycle" class="w-full h-full object-cover saturate-0 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transform group-hover:scale-105 transition-all duration-700 ease-out cursor-default">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full max-w-3xl mx-auto gold-divider"></div>
+
+    <!-- Section 2: Wealth & Miracle (Text Left, Image Right) -->
+    <section class="py-24 md:py-32 bg-[#121110]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">A Remaining Miracle</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight">Saved by Being <br>Forgotten.</h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>
+                        During the Meiji era, when Japan's railway network was being established, Mikuni was left out of the main logistics routes. Having escaped rapid modernization and the fires of war, its dignified streets and unhurried flow of time remain untouched today.
+                    </p>
+                    <p class="text-[#c2a373] italic serif text-xl mt-4">
+                        "Being inconvenient served as a protective barrier, a sanctuary to preserve the history of this town."
+                    </p>
+                </div>
+            </div>
+            <div class="reveal delay-200">
+                <div class="aspect-[4/3] w-full img-zoom bg-[#1a1816]">
+                    <img src="https://images.unsplash.com/photo-1628042466034-7a911739f5f0?q=80&w=1200&auto=format&fit=crop" alt="Untouched landscape of Mikuni" class="w-full h-full object-cover saturate-50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Layers of Time (Zig-Zag Layout) -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-6xl mx-auto">
+        <div class="reveal text-center mb-20">
+            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">A Dense Accumulation</h4>
+            <h2 class="text-3xl md:text-5xl mb-8">Layers of Time, <br>Still Breathing.</h2>
+        </div>
+        
+        <div class="space-y-24">
+            <!-- 13 Million Years -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <div class="aspect-[3/2] w-full overflow-hidden bg-[#1a1816]">
+                    <img src="https://images.unsplash.com/photo-1574483750849-012ab990119e?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover saturate-50 hover:saturate-100 transition-all duration-1000">
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">13 Million Years Ago</h3>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        The rugged cliffs of Tojinbo bear eternal time etched into their rocks, forming a magnificent cathedral of nature.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 1375 Middle Ages (Reverse) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <div class="aspect-[3/2] w-full overflow-hidden bg-[#1a1816] md:order-2">
+                    <img src="https://images.unsplash.com/photo-1596485806326-c22f67644265?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover saturate-50 hover:saturate-100 transition-all duration-1000">
+                </div>
+                <div class="md:text-right">
+                    <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1375: The Middle Ages</h3>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        At Takidanji Temple, moss has quietly accumulated for 650 years, inviting you into medieval tranquility.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 1541 Passion -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <div class="aspect-[3/2] w-full overflow-hidden bg-[#1a1816]">
+                    <img src="https://images.unsplash.com/photo-1512413914565-d66763e0e719?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover saturate-50 hover:saturate-100 transition-all duration-1000">
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1541: Unquenchable Passion</h3>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        The "Mikuni Festival," where giant warrior floats shake the streets, still pulsing as the lifeblood of the town.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Access -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto reveal">
+        <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4 text-center">Journey to the Coast</h4>
+        <h2 class="text-3xl md:text-5xl mb-16 text-center">Access</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+            <!-- Kyoto -->
+            <div class="space-y-4">
+                <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Kyoto</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 2.5 hours)</p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Take the Limited Express "Thunderbird" to JR Fukui Station. Transfer to the Echizen Railway (Mikuni-Awara Line) and disembark at <strong>Mikuni Station</strong>. 
+                    <span class="block mt-4 italic text-gray-400">
+                        *Note: Be careful not to confuse this with the final stop, "Mikuni-Minato Station." The house is a 10-minute walk away. I highly recommend a route through the atmospheric old streets of the Kitamaebune era.
+                    </span>
+                </p>
+            </div>
+            <!-- Kanazawa -->
+            <div class="space-y-4">
+                <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Kanazawa</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 1h 30m)</p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Take the JR local train or Shinkansen to JR Awaraonsen Station. Board the Keifuku Bus (Route 85 or 97) and alight at <strong>Eishoji (Tatemachi)</strong>, a stop in the heart of the historic district. 
+                    <span class="block mt-4 italic text-gray-400">
+                        This cost-effective and scenic route offers a slower transition from the city’s pace to our quiet harbor.
+                    </span>
+                </p>
+            </div>
+            <!-- Takayama -->
+            <div class="space-y-4">
+                <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Takayama</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 3.5 – 4 hours)</p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Take an express bus (Nohi Bus) from Takayama to Kanazawa Station. From Kanazawa, follow the coastal route via JR Awaraonsen Station as described above. 
+                    <span class="block mt-4 italic text-gray-400">
+                        This "Mountains to Sea" route connects Japan’s mountainous heart to its historic coastal gateway.
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Train Image -->
+        <div class="mt-20 group">
+            <div class="aspect-[21/9] w-full bg-[#1a1816] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1624027492683-9118e7e17c06?q=80&w=2000&auto=format&fit=crop" alt="Echizen Railway" class="w-full h-full object-cover opacity-70 saturate-0 group-hover:saturate-100 group-hover:opacity-100 transition-all duration-1000">
+            </div>
+            <p class="text-right text-[10px] text-gray-600 mt-2 uppercase tracking-widest">Echizen Railway through the countryside</p>
+        </div>
+    </section>
+
+    <!-- Section 5: Booking -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-3xl mx-auto text-center reveal">
+        <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">Inquiries</h4>
+        <h2 class="text-3xl md:text-5xl mb-12">Contact Tokimura</h2>
+        
+        <!-- Button now scrolls up to rooms-section -->
+        <a href="#rooms-section" class="btn-gold px-12 py-4 mb-16">
+            Check Availability on Airbnb
+        </a>
+        
+        <div class="bg-[#121110] p-8 md:p-12 text-left border border-gray-800 rounded-sm relative">
+            <h3 class="text-xl serif text-[#c2a373] mb-6">Send an Inquiry</h3>
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+                    <input type="text" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+                    <input type="email" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
+                    <textarea rows="4" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2 resize-none"></textarea>
+                </div>
+                <button type="submit" class="text-xs tracking-widest uppercase text-[#c2a373] border border-[#c2a373] px-8 py-3 hover:bg-[#c2a373] hover:text-black transition-all">Send</button>
+            </form>
+            <div id="successMsg" class="absolute inset-0 bg-[#121110] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+                <p class="text-[#c2a373] serif text-xl">Message Sent</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#080807] py-16 text-center border-t border-gray-900">
+        <h2 class="text-2xl serif text-[#c2a373] mb-2">Tokimura</h2>
+        <p class="text-gray-600 text-xs tracking-[0.3em] uppercase mb-8">Mikuni, Fukui, Japan</p>
+        <p class="text-gray-700 text-[10px] tracking-widest" id="copyright-text"></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Copyright Logic: 2026 or 2026-YYYY
+            const startYear = 2026;
+            const currentYear = new Date().getFullYear();
+            const copyrightEl = document.getElementById('copyright-text');
+            copyrightEl.innerHTML = `&copy; ${currentYear > startYear ? startYear + '-' + currentYear : startYear} Tokimura. All rights reserved.`;
+
+            // Reveal Animation
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+            // Form Submit Mockup
+            const form = document.getElementById('contactForm');
+            const successMsg = document.getElementById('successMsg');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                successMsg.classList.remove('opacity-0');
+                setTimeout(() => {
+                    form.reset();
+                    successMsg.classList.add('opacity-0');
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
