@@ -792,6 +792,12 @@
                     current = (current + 1) % slides.length;
                     slides[current].classList.remove('opacity-0', 'z-0', 'md:opacity-0');
                     slides[current].classList.add('opacity-100', 'z-10');
+
+                    // アクティブになったスライド内にビデオがあれば再生を開始する
+                    const activeVideo = slides[current].querySelector('video');
+                    if (activeVideo) {
+                        activeVideo.play().catch(e => console.warn("Video play blocked or failed:", e));
+                    }
                 }, intervalTime);
             });
 
