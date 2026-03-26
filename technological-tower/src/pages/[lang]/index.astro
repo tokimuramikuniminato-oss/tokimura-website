@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../i18n/ui';
+
+const { lang } = Astro.params;
+const t = ui[lang as keyof typeof ui];
+---
+
+<Layout title={t["meta.title"]} description={t["meta.description"]}>
+  <!-- Your page content will go here, using t for translations -->
+</Layout>
