@@ -7,5 +7,870 @@ const t = ui[lang as keyof typeof ui];
 ---
 
 <Layout title={t["meta.title"]} description={t["meta.description"]}>
-  <!-- Your page content will go here, using t for translations -->
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWZ1R8JXHL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YWZ1R8JXHL');
+    </script>
+
+    <!-- reCAPTCHA v3 API -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeA-pAsAAAAANYCl1NTkfKlQYPuOC8lDi0rAKv9"></script>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokimura | A Preserved Fragment of Time: A Ryokan in Mikuni, Fukui</title>
+    <meta name="description" content="Not Kyoto, But Mikuni. A 1928 traditional Japanese house offering preserved fragment for your breath. Experience the unhurried flow of time on the hidden coast of the sea opposite the Pacific Ocean.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/icon.ico" sizes="180x180">
+
+    
+    <style>
+        :root {
+            --bg-color: #0d0c0b;
+            --text-main: #e8dfd5;
+            --text-accent: #c2a373;
+            --text-muted: #8c857d;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(13,12,11,0.3) 0%, rgba(13,12,11,1) 100%);
+        }
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
+            opacity: 0.3;
+        }
+        .btn-gold {
+            border: 1px solid var(--text-accent);
+            color: var(--text-accent);
+            transition: all 0.4s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .btn-gold:hover {
+            background-color: var(--text-accent);
+            color: var(--bg-color);
+        }
+        /* reCAPTCHAロゴを非表示にする */
+        .grecaptcha-badge {
+            visibility: hidden !important;
+        }
+    </style>
+
+    <dev class="antialiased selection:bg-[#c2a373] selection:text-[#0d0c0b]">
+
+        <!-- Hero Section -->
+        <header class="relative w-full h-screen min-h-[600px] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="images/0_Hero/Hero.JPEG?q=80&w=2000&auto=format&fit=crop" alt="alt.hero.main_image" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto reveal">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide text-[#c2a373]">
+                    Not Kyoto,<br>But Mikuni.
+                </h1>
+                <p class="text-xl md:text-3xl serif italic mb-8">The Japan You Wished Existed.</p>
+                <div class="w-16 h-px bg-[#c2a373] mx-auto mb-8 opacity-50"></div>
+                <p class="text-sm md:text-base max-w-2xl mx-auto tracking-wide leading-relaxed text-gray-300">
+                    Far from the lost tranquility of crowded tourist routes, <br class="hidden md:block">
+                    a proud and authentic everyday life still breathes on the Sea of Japan.
+                </p>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-pulse opacity-50">
+                <p class="text-xs uppercase tracking-[0.2em] mb-2">Scroll</p>
+                <div class="w-px h-12 bg-[#c2a373] mx-auto"></div>
+            </div>
+        </header>
+
+        <!-- Section 1: 1928 Preserved Fragment (Image Left, Text Right) -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
+                <div class="reveal">
+                    <!-- Slider Section 1: Grid & Video -->
+                    <div class="gallery-slider video-slider relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <!-- Slide 1: Grid Layout -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                            <div class="grid grid-cols-3 grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 row-span-2 relative overflow-hidden h-full w-full">
+                                    <img src="images/1_About_Tokimura/Main1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.about.slider_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden h-full w-full">
+                                    <img src="images/1_About_Tokimura/Main2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.about.slider_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden h-full w-full">
+                                    <img src="images/1_About_Tokimura/Main3.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.about.slider_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2: Video 1 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000" poster="images/1_About_Tokimura/MainMovie1.JPEG">
+                                <source src="images/1_About_Tokimura/MainMovie1.mp4" type="video/mp4" alt="alt.about.video1_poster">
+                            </video>
+                        </div>
+                        <!-- Slide 3: Video 2 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000" poster="images/1_About_Tokimura/MainMovie2.JPEG">
+                                <source src="images/1_About_Tokimura/MainMovie2.mp4" type="video/mp4" alt="alt.about.video2_poster">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal delay-200">
+                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">About Tokimura</h4>
+                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight">1928: Preserved Fragment <br>for Your Breath.</h2>
+                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                        <p>
+                            Built in 1928, this house preserves the traditional Japanese way of life, its spaces gently divided only by <em>fusuma</em> doors and <em>shoji</em> screens. This is not a place for socializing, but a preserved fragment of time to indulge in the luxury of solitude.
+                        </p>
+                        <p>
+                            The soft light filtering through the shoji, the subtle scent of tatami mats, and the overwhelming silence of the night. Here, taking off your watch and simply listening to the sound of your own breath will become the most precious experience of your modern journey.
+                        </p>
+                        <p>
+                            We named this inn (ryokan) <strong>"Tokimura"</strong>—literally translating to the "Village of Time." Our wish is for this house to serve two purposes: first, to be your anchor for traveling through the immense layers of time accumulated within the town of Mikuni, Fukui. And second, to provide a space where you can listen to the sound of your own breath and the emotions that well up moment by moment, inviting you on a deep, introspective journey into the present.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Five Rooms Header (Target for scroll up) -->
+            <div id="rooms-section" class="mt-32 text-center reveal scroll-mt-24">
+                <h3 class="text-2xl md:text-4xl mb-8 serif text-[#e8dfd5]">Five Rooms, Five Fragments of Time</h3>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                    <p>
+                        Built in 1928, this house holds five rooms, each harboring a distinct narrative. Designed in the traditional style, with spaces gently divided only by <em>fusuma</em> doors and <em>shoji</em> screens, guests share the spacious kitchen and bathroom, creating a single, peaceful dwelling together.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 6 Grid Rooms -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-16 mt-16 md:mt-24 reveal delay-400">
+                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-rooma" target="_blank" rel="noopener noreferrer" class="group block">
+                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">Traces of Life and the Festival’s Echo</h3>
+                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/RoomA.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.rooms.roomA" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                    </div>
+                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">The most spacious room in the house, draped in afternoon light and the faint echoes of the festival.</p>
+                </a>
+                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomb" target="_blank" rel="noopener noreferrer" class="group block">
+                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Artisan’s Frame</h3>
+                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/RoomB.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.rooms.roomB" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                    </div>
+                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">An attic retreat where you can gaze up at the beautiful roof framing, a testament to 1928 craftsmanship.</p>
+                </a>
+                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomc" target="_blank" rel="noopener noreferrer" class="group block">
+                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Morning Reflection</h3>
+                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/RoomC.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.rooms.roomC" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                    </div>
+                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">Serenity and morning light, waiting at the end of the corridor overlooking the courtyard garden.</p>
+                </a>
+                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomd" target="_blank" rel="noopener noreferrer" class="group block">
+                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Crimson Shadow</h3>
+                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/RoomD.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.rooms.roomD" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                    </div>
+                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">A small, introspective room where soft light dances on traditional crimson walls.</p>
+                </a>
+                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roome" target="_blank" rel="noopener noreferrer" class="group block">
+                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">The Sanctum of Shakudani Stone</h3>
+                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/RoomE.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.rooms.roomE" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                    </div>
+                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">Dignified stillness on the ground floor, facing the Shakudani stone and eternal moss garden.</p>
+                </a>
+            </div>
+
+            <!-- Tracing the Echoes (Rental Bicycle) -->
+            <div id="bicycle-section" class="mt-32 text-center reveal scroll-mt-24">
+                <h3 class="text-2xl md:text-4xl mb-12 serif text-[#e8dfd5]">Tracing the Echoes: <br class="md:hidden">Stepping into the Living History</h3>
+                
+                <div class="group max-w-lg mx-auto mb-12">
+                    <div class="aspect-[4/3] w-full overflow-hidden bg-[#0d0c0b]">
+                        <img src="images/1_About_Tokimura/Bicycle.JPEG?q=80&w=800&auto=format&fit=crop" alt="alt.bicycle.main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger cursor-default">
+                    </div>
+                </div>
+
+                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                    <p>
+                        Once you step beyond the threshold of this 1928 house, you will hear the town’s many heartbeats. There is the noble pride of the Kitamaebune merchants, who once transformed immense wealth into a richness of spirit that still permeates these streets. There is the 13-million-year-old pulse of the earth, echoing through the stone cathedrals of Tojinbo and the sacred silence of Oshima Island. And there is the living breath of the present—the quiet focus of Zen monks and the rhythmic strikes of master craftsmen in their ancient villages.
+                    </p>
+                    <p>
+                        To help you trace these echoes more profoundly and freely, we provide complimentary <strong>bicycles and carry bags</strong> for the local train. Whether riding along the coast to feel the salt in the breeze or venturing inland toward the sanctuaries of Zen, let this modest vessel be an extension of your own breath. Step out from this preserved fragment of time and immerse yourself in the living, pulsing landscape that lies before you.
+                    </p>
+                </div>
+            </div>
+
+
+        </section>
+
+        <div class="w-full max-w-3xl mx-auto gold-divider"></div>
+
+        <!-- Section 2: Wealth Transformed into Spirit -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
+                <div class="reveal md:order-2">
+                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">The Depths of History and Culture</h4>
+                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight">Wealth Transformed <br>into Spirit.</h2>
+                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                        <p>
+                            As a prominent port of call for the <strong><em>Kitamaebune</em></strong>—a massive fleet of legendary merchant ships with thousands of vessels in operation at its peak—Mikuni accumulated immense wealth. During the Edo and mid-Meiji eras, it was this northern sea route, rather than the Pacific, that served as the primary stage for Japan’s logistics and cultural dissemination.
+                        </p>
+                        <p>
+                            Instead of pursuing personal luxury, Mikuni's prosperous merchants invested their fortunes in building schools <strong>"Ryushokan"</strong>, developing the harbor <strong>"Esser Dike"</strong>, and inviting cultural figures to cultivate a richness of spirit. 
+                        </p>
+                        <p>
+                            The elegance that still permeates the streets today, and the breathing tradition of places like the over 150-year-old <strong>"Uoshiro"</strong> restaurant, are the lingering fragrances of their noble aesthetic.
+                        </p>
+                    </div>
+                </div>
+                <div class="reveal delay-200 md:order-1">
+                    <!-- Slider Section 2 -->
+                    <div class="gallery-slider relative w-full aspect-[4/5] md:aspect-square overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <!-- Slide 1 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                            <!-- PC: Height 4:3 (grid-rows-7), Mobile: Height 3:2 (grid-rows-5) -->
+                            <div class="grid grid-cols-2 grid-rows-5 md:grid-rows-7 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 row-span-3 md:col-span-2 md:row-span-4 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.wealth.s1_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/OldPicture2-1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.wealth.s1_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/OldPicture2-2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.wealth.s1_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <!-- PC: Width 4:3 (grid-cols-7), Mobile: Width 1:1 (grid-cols-2) -->
+                            <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-7 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-4 row-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.wealth.s2_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/ElementarySchool.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.wealth.s2_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                                <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
+                                    <img src="images/2_Wealth_Transformed_into_Spirit/EscherPier.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.wealth.s2_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Saved by the Sidelines (Text Left, Image Right) -->
+        <section class="py-24 md:py-32 bg-[#121110]">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
+                <div class="reveal">
+                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">A Remaining Miracle</h4>
+                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight">Saved by <br>the Sidelines.</h2>
+                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                        <p>
+                            During the Meiji era, when Japan's railway network was being established, Mikuni was left out of the main logistics routes. Having escaped rapid modernization and the fires of war, its dignified streets and unhurried flow of time remain untouched today.
+                        </p>
+                        <div class="text-[#c2a373] italic serif text-lg md:text-xl mt-10 border-l border-[#c2a373] border-opacity-40 pl-8 py-2">
+                            <p class="leading-relaxed mb-6">
+                                "Fukui is the hub connecting Kyoto and Kanazawa.
+                                But just one hour away, there is a world the modern tracks missed.
+                            </p>
+                            <p class="leading-relaxed mb-6">
+                                <span class="font-semibold not-italic">
+                                    Think of this distance as a silent guardian.
+                                </span><br>
+                                It shielded Mikuni from the waves of development.
+                                It left behind a rare, preserved fragment of history.
+                            </p>
+                            <p class="leading-relaxed">
+                                Venture beyond the horizon.<br>
+                                Your reward is a time that remains untouched."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal delay-200">
+                    <!-- Slider Section 3: Two Grids -->
+                    <!-- PC・スマホ共通でメイン(上 4:3)とサブ2枚(下左右 4:5)の構成にするため aspect-[8/11] に設定 -->
+                    <div class="gallery-slider relative w-full aspect-[8/10] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <!-- Slide 1 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                            <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.sidelines.s1_main" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s1_sub1" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s1_sub2" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-2_TownScape/TownScape2_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.sidelines.s2_main" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-2_TownScape/TownScape2_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s2_sub1" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-2_TownScape/TownScape2_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s2_sub2" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-3_TownScape/TownScape3_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.sidelines.s3_main" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-3_TownScape/TownScape3_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s3_sub1" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-3_TownScape/TownScape3_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s3_sub2" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                            <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                                <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-4_TownScape/TownScape4_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.sidelines.s4_main" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-4_TownScape/TownScape4_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s4_sub1" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                                <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                    <img src="images/3_Saved_by_Being_Forgotten/3-4_TownScape/TownScape4_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.sidelines.s4_sub2" class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Layers of Time (Zig-Zag Layout) -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-6xl mx-auto">
+            <div class="reveal text-center mb-20">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">A Dense Accumulation</h4>
+                <h2 class="text-3xl md:text-5xl mb-8">Layers of Time, <br>Still Breathing.</h2>
+            </div>
+
+            <!-- Introduction -->
+            <div class="mt-8 mb-24 text-center reveal scroll-mt-24">
+                <div class="text-[#c2a373] italic serif text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                    <p>
+                        "To breathe the air of Mikuni is to inhale the weight of centuries.<br><br>
+                        Here, history is not a dusty textbook;<br>
+                        it is a living, pulsing landscape that lies before you.<br><br>
+                        Within just a few minutes of walking,<br>
+                        you can journey across millions of years."
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-24">
+                <!-- Item 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <div class="grid grid-cols-2 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 md:col-span-2 md:row-span-1 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-1_OshimaTojinbo/Oshima1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.layers.item1_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-1_OshimaTojinbo/Tojinbo2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item1_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-1_OshimaTojinbo/Tojinbo1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item1_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">13 Million Years Ago: Nature’s Cathedral</h3>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                            The story begins with the earth’s ancient memory. The rugged cliffs of <strong>Tojinbo</strong> and the sacred, uninhabited island of <strong>Oshima</strong> were forged by volcanic fury 13 million years ago. These majestic columnar formations rise like a magnificent cathedral of stone, where the eternal forces of nature speak in deep, echoing tones.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Reverse) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger md:order-2">
+                        <div class="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 md:col-span-2 md:row-span-2 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-2_Takidanji/Takidanji1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.layers.item2_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-2_Takidanji/Takidanji2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item2_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-2_Takidanji/Takidanji3.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item2_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:text-right">
+                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1375: Medieval Stillness</h3>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                            As you step into the town, time shifts to the Middle Ages. At <strong>Takidanji Temple</strong>, the oldest in Mikuni, moss has quietly accumulated for over 650 years, absorbing the light and the silence. Every step along its ancient stone path invites you to dissolve into medieval tranquility, far removed from the present world.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <div class="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 md:col-span-2 md:row-span-2 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-3_MikuniShrine/MikuniFestival1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.layers.item3_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-3_MikuniShrine/MikuniShrine1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item3_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-3_MikuniShrine/MikuniFestival2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item3_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1541: The Unquenchable Passion</h3>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                            Behind the silence, a fire of devotion burns. Since 1541, <strong>Mikuni Shrine</strong> has stood as the guardian of the town’s spirit. This prayer culminates in the <strong>Mikuni Festival</strong>, a 300-year-old tradition where giant warrior floats—reaching 6.5 meters in height—shake the historic streets. It is the lifeblood of Mikuni, pulsing with a passion that never fades.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger md:order-2">
+                        <div class="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 md:col-span-2 md:row-span-2 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-4_Uoshiro/Uoshiro1.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.layers.item4_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-4_Uoshiro/Uoshiro2.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item4_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-4_Uoshiro/Uoshiro3.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item4_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1873: Echoes of Elegance</h3>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                            With the dawn of the modern era, Mikuni flourished as a cultural gateway. <strong>Uoshiro</strong>, founded in 1873, was once a renowned stage for social and cultural exchange in the historic district. Today, within its walls that still house the memories of that era, a Kyoto-trained master prepares local delicacies, blending the town’s rich history with its vibrant present.
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Item 5 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <div class="grid grid-cols-2 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 md:col-span-2 md:row-span-1 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-5_EscherPier/EscherPier2.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.layers.item5_main" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-5_EscherPier/EscherPier3.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item5_sub1" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                                <img src="images/4_Layers_of_Time_Still_Breathing/4-5_EscherPier/EscherPier1.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.layers.item5_sub2" class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">1882: The Horizon’s Curve</h3>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                            In 1882, a Dutch engineer named Esser reshaped the coast with a visionary brick breakwater. The <strong>Esser Dike</strong> remains a monument to Meiji-era ingenuity, its beautiful curve protecting the harbor for over a century. When its silhouette is painted in the vivid colors of the sunset, you feel the quiet harmony between human engineering and the vast Sea of Japan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mt-32 text-center reveal scroll-mt-24">
+                <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                    <p>
+                        "When you wake in <strong><em>Tokimura</em></strong> (built in 1928),<br>
+                        you will realize that you are more than a visitor.<br><br>
+                        You are the latest line being written in the continuous,<br>
+                        breathing story of this town."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Guidebook Link 1 -->
+            <div class="mt-24 md:mt-32 max-w-3xl mx-auto text-center reveal">
+                <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/6454173" class="block border border-[#4a453f] md:hover:border-[#c2a373] [&.mobile-active]:border-[#c2a373] bg-[#121110] md:hover:bg-[#1a1816] [&.mobile-active]:bg-[#1a1816] p-8 md:p-10 transition-all duration-500 text-left group mobile-guidebook-trigger">
+                    <p class="text-[10px] text-[#c2a373] uppercase tracking-[0.2em] mb-3">Local Guidebook</p>
+                    <h4 class="flex items-center text-white serif text-xl md:text-2xl mb-4 md:group-hover:text-[#c2a373] group-[.mobile-active]:text-[#c2a373] transition-colors">
+                        <span>A Detailed Local Guide: 4 Days in Historic Mikuni</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 opacity-0 md:group-hover:opacity-100 group-[.mobile-active]:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </h4>
+                    <p class="text-sm text-gray-400">A recommended route by the host for tracing the layers of history with your own feet.</p>
+                </a>
+            </div>
+
+            <!-- Introduction from Section 4 fo Section 5 -->
+            <div class="mt-32 text-center reveal scroll-mt-24">
+                <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-10">
+                    <p>
+                        "Immersed in Mikuni's profound history,<br>
+                        you will naturally yearn to discover stories that lie further beyond..."
+                    </p>
+                </div>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                    <p>
+                        If you wish to touch the depths of Fukui, your basecamp must be by the sea. By making this "preserved fragment" your home for 3 or 4 nights, your excursions into Fukui become <strong>an extension of Mikuni’s stillness</strong>. Let the rhythmic tides of this port town be the anchor for your journeys to Zen sanctuaries and master craft villages beyond.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section 5: The Anchor of Your Fukui Journey -->
+        <section class="py-24 md:py-32 bg-[#121110]">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
+                <div class="reveal">
+                    <!-- Static Grid Section 5 -->
+                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                        <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-1 row-span-1 md:col-span-2 md:row-span-1 relative overflow-hidden h-full w-full">
+                                <img src="images/5_The_Anchor_of_Your_Fukui_Journey/zen.JPEG?q=80&w=1200&auto=format&fit=crop" alt="alt.anchor.main" class="w-full h-full object-cover aspect-[2/1] saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-full w-full">
+                                <img src="images/5_The_Anchor_of_Your_Fukui_Journey/KnifeVillage.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.anchor.sub1" class="w-full h-full object-cover aspect-[2/1] saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-full w-full">
+                                <img src="images/5_The_Anchor_of_Your_Fukui_Journey/Tesuki.JPEG?q=80&w=600&auto=format&fit=crop" alt="alt.anchor.sub2" class="w-full h-full object-cover aspect-[2/1] saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal delay-200">
+                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">Mikuni as Your Hub</h4>
+                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight">The Anchor of <br>Your Fukui Journey.</h2>
+                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                        <p>
+                            A day trip inland to explore Eiheiji Temple (Zen) or the villages of Echizen Washi paper and forged cutlery (Craftsmanship) will be filled with pleasant stimulation. Yet, the place you should return to at the end of your journey is the tranquility of Mikuni, where the sound of the waves, hot springs, and rich culinary delights await.
+                        </p>
+                        <p>
+                            By dropping your "anchor" in Mikuni for three or four nights, you cease to be a mere tourist and become a part of the deep spirituality of this land.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guidebook Link 2 -->
+            <div class="mt-20 max-w-3xl mx-auto px-6 md:px-12 reveal delay-400">
+                <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/6468965" class="block border border-[#4a453f] md:hover:border-[#c2a373] [&.mobile-active]:border-[#c2a373] bg-[#0d0c0b] md:hover:bg-[#1a1816] [&.mobile-active]:bg-[#1a1816] p-8 md:p-10 transition-all duration-500 text-left group mobile-guidebook-trigger">
+                    <p class="text-[10px] text-[#c2a373] uppercase tracking-[0.2em] mb-3">Day Trips Guidebook</p>
+                    <h4 class="flex items-center text-white serif text-xl md:text-2xl mb-4 md:group-hover:text-[#c2a373] group-[.mobile-active]:text-[#c2a373] transition-colors">
+                        <span>Beyond the Port: Zen and Craftsmanship Day Trips</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 opacity-0 md:group-hover:opacity-100 group-[.mobile-active]:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </h4>
+                    <p class="text-sm text-gray-400">A guide to exploring the abyss of Fukui (Eiheiji and Craft villages) in a single day, using Mikuni as your anchor.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 6: Access -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto reveal">
+            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4 text-center">Journey to the Coast</h4>
+            <h2 class="text-3xl md:text-5xl mb-16 text-center">Access</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                <div class="space-y-4">
+                    <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Kyoto</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 2.5 hours)</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Take the Limited Express "Thunderbird" to JR Fukui Station. Transfer to the Echizen Railway (Mikuni-Awara Line) and disembark at <strong>Mikuni Station</strong>. 
+                        <span class="block mt-4 italic text-gray-400">
+                            *Note: Be careful not to confuse this with the final stop, "Mikuni-Minato Station." The house is a 10-minute walk away. I highly recommend a route through the atmospheric old streets of the Kitamaebune era.
+                        </span>
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Kanazawa</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 1h 30m)</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Take the JR local train or Shinkansen to JR Awaraonsen Station. Board the Keifuku Bus (Route 85 or 97) and alight at <strong>Eishoji (Tatemachi)</strong>, a stop in the heart of the historic district. 
+                        <span class="block mt-4 italic text-gray-400">
+                            This cost-effective and scenic route offers a slower transition from the city’s pace to our quiet harbor.
+                        </span>
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">From Takayama</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest">(Approx. 3.5 – 4 hours)</p>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Take an express bus (Nohi Bus) from Takayama to Kanazawa Station. From Kanazawa, follow the coastal route via JR Awaraonsen Station as described above. 
+                        <span class="block mt-4 italic text-gray-400">
+                            This "Mountains to Sea" route connects Japan’s mountainous heart to its historic coastal gateway.
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Train Image -->
+            <div class="mt-20 group">
+                <div class="aspect-[21/9] w-full bg-[#0d0c0b] overflow-hidden">
+                    <img src="images/6_Access/EchizenRailway.jpg?q=80&w=2000&auto=format&fit=crop" alt="alt.access.train" class="w-full h-full object-cover opacity-70 saturate-0 md:group-hover:saturate-50 md:group-hover:opacity-100 transition-all duration-1000 mobile-scroll-trigger-half">
+                </div>
+                <p class="text-right text-[10px] text-gray-600 mt-2 uppercase tracking-widest">Echizen Railway through the countryside</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Contact -->
+        <section class="py-24 md:py-32 px-6 md:px-12 max-w-3xl mx-auto text-center reveal">
+            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">Inquiries</h4>
+            <h2 class="text-3xl md:text-5xl mb-12">Contact Tokimura</h2>
+            
+            <p class="text-gray-300 text-sm md:text-base mb-16 leading-relaxed max-w-2xl mx-auto">
+                We welcome guests who understand the value of this place and love silence.<br class="hidden md:inline">
+                <a href="#rooms-section" class="text-[#c2a373] border-b border-[#c2a373] pb-0.5 hover:text-white transition-colors duration-300">All reservations are accepted via Airbnb.</a>
+            </p>
+            
+            <div class="bg-[#121110] p-8 md:p-12 text-left border border-gray-800 rounded-sm relative">
+                <h3 class="text-xl serif text-[#c2a373] mb-6">Send an Inquiry</h3>
+                <form id="contactForm" class="space-y-6">
+                    <!-- ID属性を追加してJSから値を取得できるようにしました -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+                        <input type="text" id="name" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+                        <input type="email" id="email" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
+                        <textarea id="message" rows="4" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2 resize-none"></textarea>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <button type="submit" id="submitBtn" class="text-xs tracking-widest uppercase text-[#c2a373] border border-[#c2a373] px-8 py-3 hover:bg-[#c2a373] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed">Send</button>
+                        
+                        <!-- reCAPTCHAのバッジを非表示にする場合、Googleの規約によりこの文言の表示が必須です -->
+                        <p class="text-[10px] text-gray-600 max-w-xs leading-tight">
+                            This site is protected by reCAPTCHA and the Google 
+                            <a href="https://policies.google.com/privacy" class="underline hover:text-gray-400">Privacy Policy</a> and 
+                            <a href="https://policies.google.com/terms" class="underline hover:text-gray-400">Terms of Service</a> apply.
+                        </p>
+                    </div>
+                </form>
+                <div id="successMsg" class="absolute inset-0 bg-[#121110] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-2000 z-10">
+                    <p class="text-[#c2a373] serif text-xl">Message Sent successfully.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#080807] py-16 text-center border-t border-gray-900">
+            <h2 class="text-2xl serif text-[#c2a373] mb-2">Tokimura</h2>
+            <p class="text-gray-600 text-xs tracking-[0.3em] uppercase mb-8">Mikuni, Fukui, Japan</p>
+            <p class="text-gray-700 text-[10px] tracking-widest" id="copyright-text"></p>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Copyright Logic
+                const startYear = 2026;
+                const currentYear = new Date().getFullYear();
+                const copyrightEl = document.getElementById('copyright-text');
+                copyrightEl.innerHTML = `&copy; ${currentYear > startYear ? startYear + '-' + currentYear : startYear} Tokimura. All rights reserved.`;
+
+                // Reveal Animation
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+                // Mobile Scroll Saturation Effect
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    const saturateObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            const isFull = entry.target.classList.contains('mobile-scroll-trigger'); // 6 Grid Rooms
+                            // mobile-group-triggerの場合は子要素のimgを全て対象にする
+                            const targets = entry.target.classList.contains('mobile-group-trigger') 
+                                ? entry.target.querySelectorAll('img, video') 
+                                : [entry.target];
+                                
+                            // 対象によって付与するクラスを変える
+                            const saturationClass = isFull ? 'saturate-100' : 'saturate-50';
+                            
+                            targets.forEach(target => {
+                                if (entry.isIntersecting) {
+                                    target.classList.add(saturationClass, 'brightness-100', 'opacity-100');
+                                } else {
+                                    target.classList.remove(saturationClass, 'brightness-100', 'opacity-100');
+                                }
+                            });
+                        });
+                    }, {
+                        rootMargin: '-45% 0px -45% 0px',
+                        threshold: 0
+                    });
+                    document.querySelectorAll('.mobile-scroll-trigger, .mobile-group-trigger, .mobile-scroll-trigger-half').forEach(el => saturateObserver.observe(el));
+
+                    // Guidebook Active Effect
+                    const guidebookObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('mobile-active');
+                            } else {
+                                entry.target.classList.remove('mobile-active');
+                            }
+                        });
+                    }, {
+                        rootMargin: '-45% 0px -45% 0px',
+                        threshold: 0
+                    });
+                    document.querySelectorAll('.mobile-guidebook-trigger').forEach(el => guidebookObserver.observe(el));
+                }
+
+                // Slider Logic
+                const sliders = document.querySelectorAll('.gallery-slider');
+                sliders.forEach(slider => {
+                    const slides = slider.querySelectorAll('.gallery-slide');
+
+                    if (slides.length <= 1) return;
+                    
+                    let current = 0;
+                    const intervalTime = 5000; // 5 seconds
+                    
+                    setInterval(() => {
+                        slides[current].classList.remove('opacity-100', 'z-10');
+                        slides[current].classList.add('opacity-0', 'z-0');
+                        current = (current + 1) % slides.length;
+                        slides[current].classList.remove('opacity-0', 'z-0', 'md:opacity-0');
+                        slides[current].classList.add('opacity-100', 'z-10');
+
+                        // アクティブになったスライド内にビデオがあれば再生を開始する
+                        const activeVideo = slides[current].querySelector('video');
+                        if (activeVideo) {
+                            activeVideo.play().catch(e => console.warn("Video play blocked or failed:", e));
+                        }
+                    }, intervalTime);
+                });
+
+                // --- reCAPTCHA & GAS Form Submit Logic ---
+                
+                // 以下の定数を実際のものに書き換えてください
+                const RECAPTCHA_SITE_KEY = '6LeA-pAsAAAAANYCl1NTkfKlQYPuOC8lDi0rAKv9'; 
+                const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycby1eCRihzhy-b7fZn-pVYP4qT85xSZKB5MmDjzWTgpMO7G1H_5MO6mdiQ28NCwGVMMy7A/exec';
+
+                const form = document.getElementById('contactForm');
+                const successMsg = document.getElementById('successMsg');
+                const submitBtn = document.getElementById('submitBtn');
+
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        
+                        // 送信中のボタン無効化と表示変更
+                        const originalBtnText = submitBtn.textContent;
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Sending...';
+
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function(token) {
+                                
+                                // フォームデータの収集
+                                const data = {
+                                    name: document.getElementById('name').value,
+                                    email: document.getElementById('email').value, // Emailも追加
+                                    message: document.getElementById('message').value,
+                                    recaptchaToken: token
+                                };
+
+                                // GASへ送信
+                                fetch(GAS_WEBAPP_URL, {
+                                    method: 'POST',
+                                    mode: 'no-cors',
+                                    headers: {
+                                        'Content-Type': 'text/plain;charset=utf-8',
+                                    },
+                                    body: JSON.stringify(data)
+                                })
+                                .then(() => {
+                                    // アラートの代わりに既存のUI（successMsg）を表示します
+                                    successMsg.classList.remove('opacity-0');
+                                    form.reset();
+                                    setTimeout(() => {
+                                        successMsg.classList.add('opacity-0');
+                                        submitBtn.disabled = false;
+                                        submitBtn.textContent = originalBtnText;
+                                    }, 3000);
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    alert('送信に失敗しました。時間をおいて再度お試しください。');
+                                    submitBtn.disabled = false;
+                                    submitBtn.textContent = originalBtnText;
+                                });
+
+                            }).catch(function(error) {
+                                console.error('reCAPTCHA Error:', error);
+                                alert('セキュリティチェックに失敗しました。');
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = originalBtnText;
+                            });
+                        });
+                    });
+                }
+            });
+        </script>
+    </dev>
 </Layout>
