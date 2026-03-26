@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../i18n/ui';
+import LanguageSelector from '../../components/LanguageSelector.astro';
 
 export async function getStaticPaths() {
   return Object.keys(ui).map((lang) => ({ params: { lang } }));
@@ -8,6 +9,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = (key: keyof typeof ui['en']) => ui[lang as keyof typeof ui][key] || ui['en'][key];
+const currentLang = lang as string;
 ---
 
 <Layout title={t("meta.title")} description={t("meta.description")}>
@@ -92,6 +94,8 @@ const t = (key: keyof typeof ui['en']) => ui[lang as keyof typeof ui][key] || ui
     </style>
 
     <div class="antialiased selection:bg-[#c2a373] selection:text-[#0d0c0b]">
+        <!-- Language Selector -->
+        <LanguageSelector currentLang={currentLang} />
 
         <!-- Hero Section -->
         <header class="relative w-full h-screen min-h-[600px] flex flex-col justify-center items-center text-center px-4 overflow-hidden">

@@ -1,4 +1,15 @@
 export const ui = {
+  languageNames: {
+    en: "English",
+    de: "Deutsch",
+    fr: "Français",
+    es: "Español",
+    it: "Italiano",
+    "zh-cn": "简体中文",
+    "zh-tw": "繁體中文",
+    ko: "한국어",
+    th: "ภาษาไทย",
+  },
   en: {
     "meta.title": "Tokimura | A Preserved Fragment of Time: A Ryokan in Mikuni, Fukui",
     "meta.description": "Not Kyoto, But Mikuni. A 1928 traditional Japanese house offering preserved fragment for your breath. Experience the unhurried flow of time on the hidden coast of the sea opposite the Pacific Ocean.",
