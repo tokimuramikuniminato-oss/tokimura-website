@@ -1,6 +1,13 @@
 ---
-import { languages } from '../i18n/ui';
-const { lang = "en" } = Astro.props;
+import { ui } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+}
+
+const { lang = "en", title, description } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang={lang} class="scroll-smooth">
@@ -8,7 +15,7 @@ const { lang = "en" } = Astro.props;
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWZ1R8JXHL"></script>
-    <script>
+    <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -21,17 +28,17 @@ const { lang = "en" } = Astro.props;
     <!-- meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokimura | A Preserved Fragment of Time: A Ryokan in Mikuni, Fukui</title>
-    <meta name="description" content="Not Kyoto, But Mikuni. A 1928 traditional Japanese house offering preserved fragment for your breath. Experience the unhurried flow of time on the hidden coast of the sea opposite the Pacific Ocean.">
+    <title>{title}</title>
+    <meta name="description" content={description}>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/icon.ico" sizes="180x180">
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/icon.ico" sizes="180x180">
 
     
-    <style>
+    <style is:global>
         :root {
             --bg-color: #0d0c0b;
             --text-main: #e8dfd5;
