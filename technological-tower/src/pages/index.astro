@@ -10,7 +10,7 @@ const currentLang = lang as string;
 ---
 
 <Layout title={t("meta.title")} description={t("meta.description")} lang={lang}>
-    <div class="antialiased selection:bg-[#c2a373] selection:text-[#0d0c0b]">
+    <div>
         <!-- Language Selector -->
         <LanguageSelector currentLang={currentLang} />
 
@@ -548,7 +548,110 @@ const currentLang = lang as string;
         </footer>
 
         <script is:inline>
-            // JS scripts remain the same...
+            document.addEventListener("DOMContentLoaded", () => {
+                // Copyright Logic
+                const startYear = 2026;
+                const currentYear = new Date().getFullYear();
+                const copyrightEl = document.getElementById('copyright-text');
+                if (copyrightEl) {
+                    copyrightEl.innerHTML = `&copy; ${currentYear > startYear ? startYear + '-' + currentYear : startYear} Tokimura. All rights reserved.`;
+                }
+
+                // Reveal Animation - This is what makes sections visible!
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+                // Mobile Scroll Saturation Effect
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    const saturateObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            const isFull = entry.target.classList.contains('mobile-scroll-trigger');
+                            const targets = entry.target.classList.contains('mobile-group-trigger') 
+                                ? entry.target.querySelectorAll('img, video') 
+                                : [entry.target];
+                            const saturationClass = isFull ? 'saturate-100' : 'saturate-50';
+                            targets.forEach(target => {
+                                if (entry.isIntersecting) {
+                                    target.classList.add(saturationClass, 'brightness-100', 'opacity-100');
+                                } else {
+                                    target.classList.remove(saturationClass, 'brightness-100', 'opacity-100');
+                                }
+                            });
+                        });
+                    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+                    document.querySelectorAll('.mobile-scroll-trigger, .mobile-group-trigger, .mobile-scroll-trigger-half').forEach(el => saturateObserver.observe(el));
+                }
+
+                // Slider Logic
+                const sliders = document.querySelectorAll('.gallery-slider');
+                sliders.forEach(slider => {
+                    const slides = slider.querySelectorAll('.gallery-slide');
+                    if (slides.length <= 1) return;
+                    let current = 0;
+                    setInterval(() => {
+                        slides[current].classList.remove('opacity-100', 'z-10');
+                        slides[current].classList.add('opacity-0', 'z-0');
+                        current = (current + 1) % slides.length;
+                        slides[current].classList.remove('opacity-0', 'z-0');
+                        slides[current].classList.add('opacity-100', 'z-10');
+                        const activeVideo = slides[current].querySelector('video');
+                        if (activeVideo) activeVideo.play().catch(() => {});
+                    }, 5000);
+                });
+
+                // Contact Form Logic
+                const RECAPTCHA_SITE_KEY = '6LeA-pAsAAAAANYCl1NTkfKlQYPuOC8lDi0rAKv9'; 
+                const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycby1eCRihzhy-b7fZn-pVYP4qT85xSZKB5MmDjzWTgpMO7G1H_5MO6mdiQ28NCwGVMMy7A/exec';
+                const form = document.getElementById('contactForm');
+                const successMsg = document.getElementById('successMsg');
+                const submitBtn = document.getElementById('submitBtn');
+
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const originalBtnText = submitBtn.textContent;
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Sending...';
+
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function(token) {
+                                const data = {
+                                    name: document.getElementById('name').value,
+                                    email: document.getElementById('email').value,
+                                    message: document.getElementById('message').value,
+                                    recaptchaToken: token
+                                };
+                                fetch(GAS_WEBAPP_URL, {
+                                    method: 'POST',
+                                    mode: 'no-cors',
+                                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                                    body: JSON.stringify(data)
+                                })
+                                .then(() => {
+                                    successMsg.classList.remove('opacity-0');
+                                    form.reset();
+                                    setTimeout(() => {
+                                        successMsg.classList.add('opacity-0');
+                                        submitBtn.disabled = false;
+                                        submitBtn.textContent = originalBtnText;
+                                    }, 3000);
+                                })
+                                .catch(() => {
+                                    alert('Failed to send. Please try again later.');
+                                    submitBtn.disabled = false;
+                                    submitBtn.textContent = originalBtnText;
+                                });
+                            });
+                        });
+                    });
+                }
+            });
         </script>
     </div>
 </Layout>
