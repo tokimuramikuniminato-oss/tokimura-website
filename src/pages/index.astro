@@ -9,7 +9,7 @@ const t = (key: keyof typeof ui['en']) => ui[lang as keyof typeof ui][key] || ui
 const currentLang = lang as string;
 ---
 
-<Layout title={t("meta.title")} description={t("meta.description")} lang={lang}> 
+<Layout title={t("meta.title")} description={t("meta.description")} lang={lang}>
     <div>
         <!-- Language Selector -->
         <LanguageSelector currentLang={currentLang} />
