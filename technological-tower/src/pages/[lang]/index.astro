@@ -37,7 +37,7 @@ const currentLang = lang as string;
     <link rel="apple-touch-icon" href="/images/icon.ico" sizes="180x180">
 
     
-    <style>
+    <style is:global>
         :root {
             --bg-color: #0d0c0b;
             --text-main: #e8dfd5;
@@ -90,6 +90,10 @@ const currentLang = lang as string;
         /* reCAPTCHAロゴを非表示にする */
         .grecaptcha-badge {
             visibility: hidden !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 
