@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # あなたのメインブランチ名に合わせてください（main または master）
+    branches: [main] # master の場合は master に変更
   workflow_dispatch:
 
 permissions:
@@ -19,16 +19,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22" # 20から22に変更（より安定した最新版）
           cache: 'npm'
       - name: Install dependencies
         run: npm install
       - name: Build Astro
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
 
   deploy:
     needs: build
