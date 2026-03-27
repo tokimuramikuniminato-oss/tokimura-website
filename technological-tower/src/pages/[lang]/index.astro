@@ -14,459 +14,375 @@ const currentLang = lang as string;
 
 <Layout title={t("meta.title")} description={t("meta.description")}>
 
-    <!-- Google Analytics -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YWZ1R8JXHL"></script>
+    <!-- Language Selector -->
+    <LanguageSelector currentLang={currentLang} />
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen min-h-[600px] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="/images/0_Hero/Hero.JPEG?q=80&w=2000&auto=format&fit=crop" alt={t("alt.hero.main_image")} class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto reveal">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide text-[#c2a373] whitespace-pre-line" set:html={t("hero.title").replace(', ', ',\n')}>
+            </h1>
+            <p class="text-xl md:text-3xl serif italic mb-8">{t("hero.subtitle")}</p>
+            <div class="w-16 h-px bg-[#c2a373] mx-auto mb-8 opacity-50"></div>
+            <p class="text-sm md:text-base max-w-2xl mx-auto tracking-wide leading-relaxed text-gray-300 whitespace-pre-line">
+                {t("hero.description")}
+            </p>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-pulse opacity-50">
+            <p class="text-xs uppercase tracking-[0.2em] mb-2">{t("hero.scroll")}</p>
+            <div class="w-px h-12 bg-[#c2a373] mx-auto"></div>
+        </div>
+    </header>
+
+    <!-- Section 1: 1928 Preserved Fragment (Image Left, Text Right) -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
+            <div class="reveal">
+                <!-- Slider Section 1: Grid & Video -->
+                <div class="gallery-slider video-slider relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                    <!-- Slide 1: Grid Layout -->
+                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                        <div class="grid grid-cols-3 grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 row-span-2 relative overflow-hidden h-full w-full">
+                                <img src="/images/1_About_Tokimura/Main1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.about.slider_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-full w-full">
+                                <img src="/images/1_About_Tokimura/Main2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.about.slider_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden h-full w-full">
+                                <img src="/images/1_About_Tokimura/Main3.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.about.slider_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Video 1 -->
+                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000" poster="/images/1_About_Tokimura/MainMovie1.JPEG">
+                            <source src="/images/1_About_Tokimura/MainMovie1.mp4" type="video/mp4" title={t("alt.about.video1_poster")}>
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal delay-200">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("about.label")}</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("about.title")}></h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>{t("about.p1")}</p>
+                    <p>{t("about.p2")}</p>
+                    <p>{t("about.p3")}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Five Rooms Header -->
+        <div id="rooms-section" class="mt-32 text-center reveal scroll-mt-24">
+            <h3 class="text-2xl md:text-4xl mb-8 serif text-[#e8dfd5]">{t("rooms.header.title")}</h3>
+            <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                <p>{t("rooms.header.description")}</p>
+            </div>
+        </div>
+
+        <!-- 6 Grid Rooms -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-16 mt-16 md:mt-24 reveal delay-400">
+            <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-rooma" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomA.title")}</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/RoomA.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomA")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomA.description")}</p>
+            </a>
+            <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomb" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomB.title")}</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/RoomB.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomB")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomB.description")}</p>
+            </a>
+            <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomc" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomC.title")}</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/RoomC.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomC")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomC.description")}</p>
+            </a>
+            <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomd" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomD.title")}</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/RoomD.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomD")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomD.description")}</p>
+            </a>
+            <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roome" target="_blank" rel="noopener noreferrer" class="group block">
+                <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomE.title")}</h3>
+                <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/RoomE.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomE")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomE.description")}</p>
+            </a>
+        </div>
+
+        <!-- Tracing the Echoes -->
+        <div id="bicycle-section" class="mt-32 text-center reveal scroll-mt-24">
+            <h3 class="text-2xl md:text-4xl mb-12 serif text-[#e8dfd5] whitespace-pre-line">{t("bicycle.title")}</h3>
+            
+            <div class="group max-w-lg mx-auto mb-12">
+                <div class="aspect-[4/3] w-full overflow-hidden bg-[#0d0c0b]">
+                    <img src="/images/1_About_Tokimura/Bicycle.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.bicycle.main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger cursor-default">
+                </div>
+            </div>
+
+            <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                <p>{t("bicycle.p1")}</p>
+                <p>{t("bicycle.p2")}</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full max-w-3xl mx-auto gold-divider"></div>
+
+    <!-- Section 2: Wealth Transformed into Spirit -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
+            <div class="reveal md:order-2">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("wealth.label")}</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("wealth.title").replace(' ', '<br>')}></h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>{t("wealth.p1")}</p>
+                    <p>{t("wealth.p2")}</p> 
+                    <p>{t("wealth.p3")}</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 md:order-1">
+                <div class="gallery-slider relative w-full aspect-[4/5] md:aspect-square overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                        <div class="grid grid-cols-2 grid-rows-5 md:grid-rows-7 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 row-span-3 md:col-span-2 md:row-span-4 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.wealth.s1_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture2-1.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s1_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture2-2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s1_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
+                        <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-7 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-4 row-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.wealth.s2_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/ElementarySchool.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s2_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                            <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
+                                <img src="/images/2_Wealth_Transformed_into_Spirit/EscherPier.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s2_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Saved by the Sidelines -->
+    <section class="py-24 md:py-32 bg-[#121110]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
+            <div class="reveal">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("sidelines.label")}</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("sidelines.title").replace(' ', '<br>')}></h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>{t("sidelines.p_intro")}</p>
+                    <div class="text-[#c2a373] italic serif text-lg md:text-xl mt-10 border-l border-[#c2a373] border-opacity-40 pl-8 py-2">
+                        <p class="leading-relaxed mb-6 whitespace-pre-line">"{t("sidelines.poem.part1")}</p>
+                        <p class="leading-relaxed mb-6 whitespace-pre-line">{t("sidelines.poem.part2")}</p>
+                        <p class="leading-relaxed whitespace-pre-line">{t("sidelines.poem.part3")}"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal delay-200">
+                <div class="gallery-slider relative w-full aspect-[8/10] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                    <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
+                        <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                            <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
+                                <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.sidelines.s1_main")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.sidelines.s1_sub1")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                            </div>
+                            <div class="relative overflow-hidden w-full aspect-[4/4]">
+                                <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.sidelines.s1_sub2")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Similar slides for 2, 3, 4 with t("alt.sidelines.s2_main") etc. -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Layers of Time -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-6xl mx-auto">
+        <div class="reveal text-center mb-20">
+            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("layers.label")}</h4>
+            <h2 class="text-3xl md:text-5xl mb-8 whitespace-pre-line">{t("layers.title")}</h2>
+        </div>
+
+        <div class="mt-8 mb-24 text-center reveal scroll-mt-24">
+            <div class="text-[#c2a373] italic serif text-lg md:text-xl max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
+                <p>"{t("layers.intro")}"</p>
+            </div>
+        </div>
+
+        <div class="space-y-24">
+            <!-- Item 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
+                <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                    <div class="grid grid-cols-2 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                        <div class="col-span-2 md:col-span-2 md:row-span-1 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
+                            <img src="/images/4_Layers_of_Time_Still_Breathing/4-1_OshimaTojinbo/Oshima1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.layers.item1_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                        </div>
+                        <!-- Sub images with alt={t("alt.layers.item1_sub1")} etc. -->
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">{t("layers.item1.title")}</h3>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">{t("layers.item1.description")}</p>
+                </div>
+            </div>
+            <!-- Similar items for 2, 3, 4, 5 -->
+        </div>
+
+        <div class="mt-32 text-center reveal scroll-mt-24">
+            <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
+                <p>"{t("layers.conclusion")}"</p>
+            </div>
+        </div>
+
+        <div class="mt-24 md:mt-32 max-w-3xl mx-auto text-center reveal">
+            <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/6454173" class="block border border-[#4a453f] md:hover:border-[#c2a373] [&.mobile-active]:border-[#c2a373] bg-[#121110] md:hover:bg-[#1a1816] [&.mobile-active]:bg-[#1a1816] p-8 md:p-10 transition-all duration-500 text-left group mobile-guidebook-trigger">
+                <p class="text-[10px] text-[#c2a373] uppercase tracking-[0.2em] mb-3">{t("guide.local.label")}</p>
+                <h4 class="flex items-center text-white serif text-xl md:text-2xl mb-4 md:group-hover:text-[#c2a373] group-[.mobile-active]:text-[#c2a373] transition-colors">
+                    <span>{t("guide.local.title")}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 opacity-0 md:group-hover:opacity-100 group-[.mobile-active]:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </h4>
+                <p class="text-sm text-gray-400">{t("guide.local.description")}</p>
+            </a>
+        </div>
+
+        <div class="mt-32 text-center reveal scroll-mt-24">
+            <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-10 whitespace-pre-line">
+                <p>"{t("guide.transition")}"</p>
+            </div>
+            <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
+                <p set:html={t("anchor.intro")}></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Anchor -->
+    <section class="py-24 md:py-32 bg-[#121110]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
+            <div class="reveal">
+                <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
+                    <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
+                        <div class="col-span-1 row-span-1 md:col-span-2 md:row-span-1 relative overflow-hidden h-full w-full">
+                            <img src="/images/5_The_Anchor_of_Your_Fukui_Journey/zen.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.anchor.main")} class="w-full h-full object-cover aspect-[2/1] saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
+                        </div>
+                        <!-- Sub images -->
+                    </div>
+                </div>
+            </div>
+            <div class="reveal delay-200">
+                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("anchor.label")}</h4>
+                <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("anchor.title").replace(' ', '<br>')}></h2>
+                <div class="space-y-6 text-gray-300 text-sm md:text-base">
+                    <p>{t("anchor.p1")}</p>
+                    <p>{t("anchor.p2")}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Guidebook Link 2 with t("guide.trips.title") etc. -->
+    </section>
+
+    <!-- Section 6: Access -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto reveal">
+        <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4 text-center">{t("access.label")}</h4>
+        <h2 class="text-3xl md:text-5xl mb-16 text-center">{t("access.title")}</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+            <div class="space-y-4">
+                <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">{t("access.kyoto.title")}</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-widest">{t("access.kyoto.time")}</p>
+                <p class="text-gray-300 text-sm leading-relaxed" set:html={t("access.kyoto.description")}></p>
+            </div>
+            <!-- Kanazawa and Takayama access items -->
+        </div>
+
+        <div class="mt-20 group">
+            <div class="aspect-[21/9] w-full bg-[#0d0c0b] overflow-hidden">
+                <img src="/images/6_Access/EchizenRailway.jpg?q=80&w=2000&auto=format&fit=crop" alt={t("alt.access.train")} class="w-full h-full object-cover opacity-70 saturate-0 md:group-hover:saturate-50 md:group-hover:opacity-100 transition-all duration-1000 mobile-scroll-trigger-half">
+            </div>
+            <p class="text-right text-[10px] text-gray-600 mt-2 uppercase tracking-widest">{t("alt.access.train")}</p>
+        </div>
+    </section>
+
+    <!-- Section 7: Contact -->
+    <section class="py-24 md:py-32 px-6 md:px-12 max-w-3xl mx-auto text-center reveal">
+        <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("contact.label")}</h4>
+        <h2 class="text-3xl md:text-5xl mb-12">{t("contact.title")}</h2>
+        
+        <p class="text-gray-300 text-sm md:text-base mb-16 leading-relaxed max-w-2xl mx-auto">
+            {t("contact.airbnb_notice").split('All reservations')[0]}<br class="hidden md:inline">
+            <a href="#rooms-section" class="text-[#c2a373] border-b border-[#c2a373] pb-0.5 hover:text-white transition-colors duration-300">All reservations {t("contact.airbnb_notice").split('All reservations')[1]}</a>
+        </p>
+        
+        <div class="bg-[#121110] p-8 md:p-12 text-left border border-gray-800 rounded-sm relative">
+            <h3 class="text-xl serif text-[#c2a373] mb-6">{t("contact.form.title")}</h3>
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.name")}</label>
+                    <input type="text" id="name" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.email")}</label>
+                    <input type="email" id="email" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.message")}</label>
+                    <textarea id="message" rows="4" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2 resize-none"></textarea>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <button type="submit" id="submitBtn" class="text-xs tracking-widest uppercase text-[#c2a373] border border-[#c2a373] px-8 py-3 hover:bg-[#c2a373] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed">{t("contact.form.send")}</button>
+                    
+                    <p class="text-[10px] text-gray-600 max-w-xs leading-tight">
+                        {t("contact.form.captcha_disclosure")}
+                    </p>
+                </div>
+            </form>
+            <div id="successMsg" class="absolute inset-0 bg-[#121110] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-2000 z-10">
+                <p class="text-[#c2a373] serif text-xl">{t("contact.success_msg")}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#080807] py-16 text-center border-t border-gray-900">
+        <h2 class="text-2xl serif text-[#c2a373] mb-2">{t("footer.brand")}</h2>
+        <p class="text-gray-600 text-xs tracking-[0.3em] uppercase mb-8">{t("footer.location")}</p>
+        <p class="text-gray-700 text-[10px] tracking-widest" id="copyright-text"></p>
+    </footer>
+
     <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YWZ1R8JXHL');
+        // JS scripts remain the same...
     </script>
 
-    <!-- reCAPTCHA v3 API -->
-    <script is:inline src="https://www.google.com/recaptcha/api.js?render=6LeA-pAsAAAAANYCl1NTkfKlQYPuOC8lDi0rAKv9"></script>
-
-    <!-- meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/images/icon.ico" sizes="180x180">
-
-    
-    <style is:global>
-        :root {
-            --bg-color: #0d0c0b;
-            --text-main: #e8dfd5;
-            --text-accent: #c2a373;
-            --text-muted: #8c857d;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Lato', sans-serif;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-        h1, h2, h3, h4, .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-400 { transition-delay: 400ms; }
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(13,12,11,0.3) 0%, rgba(13,12,11,1) 100%);
-        }
-        .gold-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
-            opacity: 0.3;
-        }
-        .btn-gold {
-            border: 1px solid var(--text-accent);
-            color: var(--text-accent);
-            transition: all 0.4s ease;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.85rem;
-            text-decoration: none;
-        }
-        .btn-gold:hover {
-            background-color: var(--text-accent);
-            color: var(--bg-color);
-        }
-        /* reCAPTCHAロゴを非表示にする */
-        .grecaptcha-badge {
-            visibility: hidden !important;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-
-    <div class="antialiased selection:bg-[#c2a373] selection:text-[#0d0c0b]">
-        <!-- Language Selector -->
-        <LanguageSelector currentLang={currentLang} />
-
-        <!-- Hero Section -->
-        <header class="relative w-full h-screen min-h-[600px] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="/images/0_Hero/Hero.JPEG?q=80&w=2000&auto=format&fit=crop" alt={t("alt.hero.main_image")} class="w-full h-full object-cover opacity-40">
-                <div class="absolute inset-0 hero-overlay"></div>
-            </div>
-            
-            <div class="relative z-10 max-w-4xl mx-auto reveal">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 tracking-wide text-[#c2a373] whitespace-pre-line" set:html={t("hero.title").replace(', ', ',\n')}>
-                </h1>
-                <p class="text-xl md:text-3xl serif italic mb-8">{t("hero.subtitle")}</p>
-                <div class="w-16 h-px bg-[#c2a373] mx-auto mb-8 opacity-50"></div>
-                <p class="text-sm md:text-base max-w-2xl mx-auto tracking-wide leading-relaxed text-gray-300 whitespace-pre-line">
-                    {t("hero.description")}
-                </p>
-            </div>
-            
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-pulse opacity-50">
-                <p class="text-xs uppercase tracking-[0.2em] mb-2">{t("hero.scroll")}</p>
-                <div class="w-px h-12 bg-[#c2a373] mx-auto"></div>
-            </div>
-        </header>
-
-        <!-- Section 1: 1928 Preserved Fragment (Image Left, Text Right) -->
-        <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
-                <div class="reveal">
-                    <!-- Slider Section 1: Grid & Video -->
-                    <div class="gallery-slider video-slider relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
-                        <!-- Slide 1: Grid Layout -->
-                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
-                            <div class="grid grid-cols-3 grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                                <div class="col-span-2 row-span-2 relative overflow-hidden h-full w-full">
-                                    <img src="/images/1_About_Tokimura/Main1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.about.slider_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="relative overflow-hidden h-full w-full">
-                                    <img src="/images/1_About_Tokimura/Main2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.about.slider_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="relative overflow-hidden h-full w-full">
-                                    <img src="/images/1_About_Tokimura/Main3.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.about.slider_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Slide 2: Video 1 -->
-                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000" poster="/images/1_About_Tokimura/MainMovie1.JPEG">
-                                <source src="/images/1_About_Tokimura/MainMovie1.mp4" type="video/mp4" title={t("alt.about.video1_poster")}>
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal delay-200">
-                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("about.label")}</h4>
-                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("about.title")}></h2>
-                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
-                        <p>{t("about.p1")}</p>
-                        <p>{t("about.p2")}</p>
-                        <p>{t("about.p3")}</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Five Rooms Header -->
-            <div id="rooms-section" class="mt-32 text-center reveal scroll-mt-24">
-                <h3 class="text-2xl md:text-4xl mb-8 serif text-[#e8dfd5]">{t("rooms.header.title")}</h3>
-                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-                    <p>{t("rooms.header.description")}</p>
-                </div>
-            </div>
-
-            <!-- 6 Grid Rooms -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-16 mt-16 md:mt-24 reveal delay-400">
-                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-rooma" target="_blank" rel="noopener noreferrer" class="group block">
-                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomA.title")}</h3>
-                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/RoomA.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomA")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomA.description")}</p>
-                </a>
-                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomb" target="_blank" rel="noopener noreferrer" class="group block">
-                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomB.title")}</h3>
-                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/RoomB.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomB")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomB.description")}</p>
-                </a>
-                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomc" target="_blank" rel="noopener noreferrer" class="group block">
-                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomC.title")}</h3>
-                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/RoomC.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomC")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomC.description")}</p>
-                </a>
-                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roomd" target="_blank" rel="noopener noreferrer" class="group block">
-                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomD.title")}</h3>
-                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/RoomD.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomD")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomD.description")}</p>
-                </a>
-                <a href="http://www.airbnb.com/h/wabisabi-house-mikuni-roome" target="_blank" rel="noopener noreferrer" class="group block">
-                    <h3 class="text-[#c2a373] serif text-base md:text-xl mb-3 group-hover:text-white transition-colors duration-300">{t("rooms.roomE.title")}</h3>
-                    <div class="aspect-[4/3] w-full mb-4 overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/RoomE.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.rooms.roomE")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger">
-                    </div>
-                    <p class="text-gray-400 text-xs md:text-sm group-hover:text-gray-200">{t("rooms.roomE.description")}</p>
-                </a>
-            </div>
-
-            <!-- Tracing the Echoes -->
-            <div id="bicycle-section" class="mt-32 text-center reveal scroll-mt-24">
-                <h3 class="text-2xl md:text-4xl mb-12 serif text-[#e8dfd5] whitespace-pre-line">{t("bicycle.title")}</h3>
-                
-                <div class="group max-w-lg mx-auto mb-12">
-                    <div class="aspect-[4/3] w-full overflow-hidden bg-[#0d0c0b]">
-                        <img src="/images/1_About_Tokimura/Bicycle.JPEG?q=80&w=800&auto=format&fit=crop" alt={t("alt.bicycle.main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-100 md:group-hover:brightness-100 transition-all duration-700 ease-out mobile-scroll-trigger cursor-default">
-                    </div>
-                </div>
-
-                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-                    <p>{t("bicycle.p1")}</p>
-                    <p>{t("bicycle.p2")}</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="w-full max-w-3xl mx-auto gold-divider"></div>
-
-        <!-- Section 2: Wealth Transformed into Spirit -->
-        <section class="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center group">
-                <div class="reveal md:order-2">
-                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("wealth.label")}</h4>
-                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("wealth.title").replace(' ', '<br>')}></h2>
-                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
-                        <p>{t("wealth.p1")}</p>
-                        <p>{t("wealth.p2")}</p> 
-                        <p>{t("wealth.p3")}</p>
-                    </div>
-                </div>
-                <div class="reveal delay-200 md:order-1">
-                    <div class="gallery-slider relative w-full aspect-[4/5] md:aspect-square overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
-                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
-                            <div class="grid grid-cols-2 grid-rows-5 md:grid-rows-7 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                                <div class="col-span-2 row-span-3 md:col-span-2 md:row-span-4 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.wealth.s1_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture2-1.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s1_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-3 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture2-2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s1_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0 bg-[#0d0c0b]">
-                            <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-7 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                                <div class="col-span-4 row-span-2 md:col-span-4 md:row-span-2 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/OldPicture1-1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.wealth.s2_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/ElementarySchool.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s2_sub1")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                                <div class="col-span-3 row-span-1 md:col-span-3 md:row-span-1 relative overflow-hidden h-full w-full">
-                                    <img src="/images/2_Wealth_Transformed_into_Spirit/EscherPier.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.wealth.s2_sub2")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Saved by the Sidelines -->
-        <section class="py-24 md:py-32 bg-[#121110]">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
-                <div class="reveal">
-                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("sidelines.label")}</h4>
-                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("sidelines.title").replace(' ', '<br>')}></h2>
-                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
-                        <p>{t("sidelines.p_intro")}</p>
-                        <div class="text-[#c2a373] italic serif text-lg md:text-xl mt-10 border-l border-[#c2a373] border-opacity-40 pl-8 py-2">
-                            <p class="leading-relaxed mb-6 whitespace-pre-line">"{t("sidelines.poem.part1")}</p>
-                            <p class="leading-relaxed mb-6 whitespace-pre-line">{t("sidelines.poem.part2")}</p>
-                            <p class="leading-relaxed whitespace-pre-line">{t("sidelines.poem.part3")}"</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal delay-200">
-                    <div class="gallery-slider relative w-full aspect-[8/10] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
-                        <div class="gallery-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10 bg-[#0d0c0b]">
-                            <div class="grid grid-cols-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                                <div class="col-span-2 relative overflow-hidden w-full aspect-[4/3]">
-                                    <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Main.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.sidelines.s1_main")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
-                                </div>
-                                <div class="relative overflow-hidden w-full aspect-[4/4]">
-                                    <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub1.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.sidelines.s1_sub1")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
-                                </div>
-                                <div class="relative overflow-hidden w-full aspect-[4/4]">
-                                    <img src="/images/3_Saved_by_Being_Forgotten/3-1_TownScape/TownScape1_Sub2.JPEG?q=80&w=600&auto=format&fit=crop" alt={t("alt.sidelines.s1_sub2")} class="w-full h-full object-cover saturate-0 md:group-hover:saturate-50 transition-all duration-1000">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Similar slides for 2, 3, 4 with t("alt.sidelines.s2_main") etc. -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Layers of Time -->
-        <section class="py-24 md:py-32 px-6 md:px-12 max-w-6xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("layers.label")}</h4>
-                <h2 class="text-3xl md:text-5xl mb-8 whitespace-pre-line">{t("layers.title")}</h2>
-            </div>
-
-            <div class="mt-8 mb-24 text-center reveal scroll-mt-24">
-                <div class="text-[#c2a373] italic serif text-lg md:text-xl max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
-                    <p>"{t("layers.intro")}"</p>
-                </div>
-            </div>
-
-            <div class="space-y-24">
-                <!-- Item 1 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center reveal group">
-                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
-                        <div class="grid grid-cols-2 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                            <div class="col-span-2 md:col-span-2 md:row-span-1 relative overflow-hidden h-auto aspect-[4/3] md:aspect-auto md:h-full">
-                                <img src="/images/4_Layers_of_Time_Still_Breathing/4-1_OshimaTojinbo/Oshima1.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.layers.item1_main")} class="w-full h-full object-cover saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                            </div>
-                            <!-- Sub images with alt={t("alt.layers.item1_sub1")} etc. -->
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl text-[#c2a373] mb-4">{t("layers.item1.title")}</h3>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">{t("layers.item1.description")}</p>
-                    </div>
-                </div>
-                <!-- Similar items for 2, 3, 4, 5 -->
-            </div>
-
-            <div class="mt-32 text-center reveal scroll-mt-24">
-                <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed whitespace-pre-line">
-                    <p>"{t("layers.conclusion")}"</p>
-                </div>
-            </div>
-
-            <div class="mt-24 md:mt-32 max-w-3xl mx-auto text-center reveal">
-                <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/6454173" class="block border border-[#4a453f] md:hover:border-[#c2a373] [&.mobile-active]:border-[#c2a373] bg-[#121110] md:hover:bg-[#1a1816] [&.mobile-active]:bg-[#1a1816] p-8 md:p-10 transition-all duration-500 text-left group mobile-guidebook-trigger">
-                    <p class="text-[10px] text-[#c2a373] uppercase tracking-[0.2em] mb-3">{t("guide.local.label")}</p>
-                    <h4 class="flex items-center text-white serif text-xl md:text-2xl mb-4 md:group-hover:text-[#c2a373] group-[.mobile-active]:text-[#c2a373] transition-colors">
-                        <span>{t("guide.local.title")}</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 opacity-0 md:group-hover:opacity-100 group-[.mobile-active]:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                    </h4>
-                    <p class="text-sm text-gray-400">{t("guide.local.description")}</p>
-                </a>
-            </div>
-
-            <div class="mt-32 text-center reveal scroll-mt-24">
-                <div class="text-[#c2a373] italic serif text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-10 whitespace-pre-line">
-                    <p>"{t("guide.transition")}"</p>
-                </div>
-                <div class="space-y-6 text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-                    <p set:html={t("anchor.intro")}></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: The Anchor -->
-        <section class="py-24 md:py-32 bg-[#121110]">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center group">
-                <div class="reveal">
-                    <div class="w-full aspect-auto md:aspect-[4/3] overflow-hidden rounded-sm bg-[#0d0c0b] mobile-group-trigger">
-                        <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-2 gap-1 md:gap-2 w-full h-full p-1 md:p-0">
-                            <div class="col-span-1 row-span-1 md:col-span-2 md:row-span-1 relative overflow-hidden h-full w-full">
-                                <img src="/images/5_The_Anchor_of_Your_Fukui_Journey/zen.JPEG?q=80&w=1200&auto=format&fit=crop" alt={t("alt.anchor.main")} class="w-full h-full object-cover aspect-[2/1] saturate-0 brightness-75 md:group-hover:saturate-50 md:group-hover:brightness-100 transition-all duration-1000">
-                            </div>
-                            <!-- Sub images -->
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal delay-200">
-                    <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("anchor.label")}</h4>
-                    <h2 class="text-3xl md:text-5xl mb-8 leading-tight" set:html={t("anchor.title").replace(' ', '<br>')}></h2>
-                    <div class="space-y-6 text-gray-300 text-sm md:text-base">
-                        <p>{t("anchor.p1")}</p>
-                        <p>{t("anchor.p2")}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Guidebook Link 2 with t("guide.trips.title") etc. -->
-        </section>
-
-        <!-- Section 6: Access -->
-        <section class="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto reveal">
-            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4 text-center">{t("access.label")}</h4>
-            <h2 class="text-3xl md:text-5xl mb-16 text-center">{t("access.title")}</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-                <div class="space-y-4">
-                    <h3 class="text-[#c2a373] text-2xl serif border-b border-gray-800 pb-2">{t("access.kyoto.title")}</h3>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest">{t("access.kyoto.time")}</p>
-                    <p class="text-gray-300 text-sm leading-relaxed" set:html={t("access.kyoto.description")}></p>
-                </div>
-                <!-- Kanazawa and Takayama access items -->
-            </div>
-
-            <div class="mt-20 group">
-                <div class="aspect-[21/9] w-full bg-[#0d0c0b] overflow-hidden">
-                    <img src="/images/6_Access/EchizenRailway.jpg?q=80&w=2000&auto=format&fit=crop" alt={t("alt.access.train")} class="w-full h-full object-cover opacity-70 saturate-0 md:group-hover:saturate-50 md:group-hover:opacity-100 transition-all duration-1000 mobile-scroll-trigger-half">
-                </div>
-                <p class="text-right text-[10px] text-gray-600 mt-2 uppercase tracking-widest">{t("alt.access.train")}</p>
-            </div>
-        </section>
-
-        <!-- Section 7: Contact -->
-        <section class="py-24 md:py-32 px-6 md:px-12 max-w-3xl mx-auto text-center reveal">
-            <h4 class="text-[#c2a373] tracking-[0.2em] text-sm uppercase mb-4">{t("contact.label")}</h4>
-            <h2 class="text-3xl md:text-5xl mb-12">{t("contact.title")}</h2>
-            
-            <p class="text-gray-300 text-sm md:text-base mb-16 leading-relaxed max-w-2xl mx-auto">
-                {t("contact.airbnb_notice").split('All reservations')[0]}<br class="hidden md:inline">
-                <a href="#rooms-section" class="text-[#c2a373] border-b border-[#c2a373] pb-0.5 hover:text-white transition-colors duration-300">All reservations {t("contact.airbnb_notice").split('All reservations')[1]}</a>
-            </p>
-            
-            <div class="bg-[#121110] p-8 md:p-12 text-left border border-gray-800 rounded-sm relative">
-                <h3 class="text-xl serif text-[#c2a373] mb-6">{t("contact.form.title")}</h3>
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.name")}</label>
-                        <input type="text" id="name" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.email")}</label>
-                        <input type="email" id="email" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">{t("contact.form.message")}</label>
-                        <textarea id="message" rows="4" required class="w-full bg-transparent border-b border-gray-700 text-white focus:outline-none focus:border-[#c2a373] py-2 resize-none"></textarea>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <button type="submit" id="submitBtn" class="text-xs tracking-widest uppercase text-[#c2a373] border border-[#c2a373] px-8 py-3 hover:bg-[#c2a373] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed">{t("contact.form.send")}</button>
-                        
-                        <p class="text-[10px] text-gray-600 max-w-xs leading-tight">
-                            {t("contact.form.captcha_disclosure")}
-                        </p>
-                    </div>
-                </form>
-                <div id="successMsg" class="absolute inset-0 bg-[#121110] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-2000 z-10">
-                    <p class="text-[#c2a373] serif text-xl">{t("contact.success_msg")}</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-[#080807] py-16 text-center border-t border-gray-900">
-            <h2 class="text-2xl serif text-[#c2a373] mb-2">{t("footer.brand")}</h2>
-            <p class="text-gray-600 text-xs tracking-[0.3em] uppercase mb-8">{t("footer.location")}</p>
-            <p class="text-gray-700 text-[10px] tracking-widest" id="copyright-text"></p>
-        </footer>
-
-        <script is:inline>
-            // JS scripts remain the same...
-        </script>
-    </div>
 </Layout>
