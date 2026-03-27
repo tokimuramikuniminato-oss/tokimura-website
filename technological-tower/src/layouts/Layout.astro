@@ -1,0 +1,12 @@
+---
+import { languages } from '../i18n/ui';
+const { lang } = Astro.props;
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tokimura</title>
+    </head>
+  <body>
+    <slot /> </body>
+</html>
