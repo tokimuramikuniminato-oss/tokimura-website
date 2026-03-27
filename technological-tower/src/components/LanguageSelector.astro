@@ -1,0 +1,41 @@
+---
+import { ui } from '../i18n/ui';
+
+interface Props {
+  currentLang: string;
+}
+
+const { currentLang } = Astro.props;
+const languageNames = ui.languageNames;
+---
+
+<div class="language-selector-container fixed top-4 right-4 z-50">
+  <select id="language-select" class="bg-[#0d0c0b] text-[#c2a373] border border-[#c2a373] px-3 py-1 rounded-sm text-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#c2a373]">
+    {Object.entries(languageNames).map(([langCode, langName]) => (
+      <option value={langCode} selected={langCode === currentLang}>
+        {langName}
+      </option>
+    ))}
+  </select>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const selectElement = document.getElementById('language-select');
+    if (selectElement) {
+      selectElement.addEventListener('change', (event) => {
+        const selectedLang = (event.target as HTMLSelectElement).value;
+        let newPath;
+
+        // 英語 (en) が選ばれた場合は、希望通り https://tokimura.jp/en に遷移
+        if (selectedLang === 'en') {
+          newPath = 'https://tokimura.jp/en';
+        } else {
+          // その他の言語は /<lang>/ へ遷移
+          newPath = `/${selectedLang}/`;
+        }
+        window.location.href = newPath;
+      });
+    }
+  });
+</script>
