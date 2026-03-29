@@ -24,7 +24,7 @@ const languageNames = ui.languageNames;
     const selectElement = document.getElementById('language-select');
     if (selectElement) {
       selectElement.addEventListener('change', (event) => {
-        const selectedLang = (event.target as HTMLSelectElement).value;
+        const selectedLang = event.target.value;
         let newPath;
 
         // 英語 (en) が選ばれた場合は、希望通り https://tokimura.jp/en に遷移
